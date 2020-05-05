@@ -48,6 +48,9 @@ public class ShipMovAcc : MonoBehaviour
             }
         }
     }
+    public Vector3 getEulerAngles(){
+        return transform.eulerAngles;
+    }
     public int getWheelInUse(){
         return wheelInUse;
     }
