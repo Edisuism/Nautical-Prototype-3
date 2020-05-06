@@ -482,6 +482,24 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2222346397957637643}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1772977947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2222346396864784855, guid: 7df0e09e72bf79d44b1bd1631e5035e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2222346397957637643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1772977949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772977947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4e21e1dd2f83274e9a35d1bc6ad0e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2061714700
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,5 +700,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Compass
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2222346396864784853, guid: 7df0e09e72bf79d44b1bd1631e5035e5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7df0e09e72bf79d44b1bd1631e5035e5, type: 3}
