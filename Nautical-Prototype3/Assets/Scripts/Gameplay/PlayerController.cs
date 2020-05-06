@@ -60,6 +60,9 @@ public class PlayerController : MonoBehaviour
                 case "Mast2":
                     GameEvents.current.Mast2Interact();
                 break;
+                case "Anchor":
+                    GameEvents.current.Mast2Interact();
+                break;
                 case "Wheel":
                     if (wheelLocked(playerID)){
                         GameEvents.current.WheelInteract();
