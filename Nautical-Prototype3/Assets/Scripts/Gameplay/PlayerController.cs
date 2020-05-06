@@ -10,9 +10,11 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveInput;
     //public Rigidbody2D ShipRB2D;
     private string inRange;
-
+    private int carrying = 0;
     public GameObject mimic;
-
+    Animator anim;
+    float lastdirx,lastdiry;
+    public RuntimeAnimatorController[] animSets;
     // Start is called before the first frame update
     public int getID(){
         return playerID;
@@ -29,6 +31,14 @@ public class PlayerController : MonoBehaviour
         foreach (GameObject p in playerCount){
             playerID++;
         }
+        anim = this.GetComponent<Animator>();
+        if(playerID%2 != 0){
+            anim.runtimeAnimatorController = animSets[0];
+        }else{
+            anim.runtimeAnimatorController = animSets[1];
+        }
+        
+        carrying = 0;
         //TODO Instantiate Mimic
         var Object = GameObject.Instantiate(mimic);
         //Object.GetComponent<MimicPlayerLocation>().SetPlayerToMimic(this.gameObject);
@@ -48,6 +58,37 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
             transform.position = new Vector3(0,-3,0);
         }
+        animatorHandler();
+        
+    }
+    private void animatorHandler(){
+        //Sets animation: Kina jank atm
+        //needs to be maintained on mimic side
+        anim.SetBool("Wheel", wheelLocked(playerID));
+
+            if(moveInput.x != 0){
+                lastdirx = moveInput.x;
+            }
+            anim.SetFloat("Horizontal", moveInput.x);
+            if(moveInput.y != 0){
+                lastdirx = moveInput.y;
+                if(moveInput.x == 0){
+                    lastdirx = 0;
+                }
+            }
+            anim.SetFloat("Vertical", moveInput.y);
+            if(moveInput.x == 0 && moveInput.y == 0){
+                anim.SetFloat("Horizontal", lastdirx);
+                anim.SetFloat("Vertical", lastdiry);
+            }
+        float s = Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.y);
+        anim.SetFloat("Speed", s);
+    }
+    public Vector2 getInputs(){
+        return moveInput;
+    }
+    public bool getWheelLocked(){
+        return wheelLocked(playerID);
     }
     //New Input System functions
     private void OnMove(InputValue value){
@@ -77,11 +118,9 @@ public class PlayerController : MonoBehaviour
                         
                         if (wheelLocked(0)){
                             //If wheel is not in use
-                            Debug.Log("YAD");
                             GameEvents.current.WheelInteract();
                             GameObject.FindGameObjectWithTag("ShipPivot").GetComponent<ShipMovAcc>().setWheelInUse(playerID);
                         }else{
-                            Debug.Log("Else");
                         }
                     }
                 break;
@@ -92,11 +131,16 @@ public class PlayerController : MonoBehaviour
     }
     //Store nearest object thats interactable
     void OnTriggerEnter2D(Collider2D dataFromCollision) {
-        if(!(dataFromCollision.gameObject.name.Equals("BoatPlayable"))){
             inRange = dataFromCollision.gameObject.name;
-            Debug.Log(inRange);
-        }
-        
+            
+            switch(inRange){
+                case "BoatPlayable":
+                    inRange = null;
+                break;
+                case "Pirate(Clone)":
+                    inRange = null;
+                break;
+            } 
     }
     //reset when out of range
     void OnTriggerExit2D(Collider2D dataFromCollision) {

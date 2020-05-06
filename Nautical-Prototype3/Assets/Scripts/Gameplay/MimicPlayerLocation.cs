@@ -9,6 +9,8 @@ public class MimicPlayerLocation: MonoBehaviour
 
     private Vector3 _positionOffset;
     private Quaternion _rotationOffset;
+    Animator anim;
+    float lastdirx,lastdiry;
 
     private void Awake()
     {
@@ -26,6 +28,8 @@ public class MimicPlayerLocation: MonoBehaviour
             SetFakeParent(FakeParent);
         }
         transform.position = FakeParent.transform.position + getToMimicOffset();
+        anim = this.GetComponent<Animator>();
+        anim.runtimeAnimatorController = playerToMimic.GetComponent<Animator>().runtimeAnimatorController;
     }
 
     private void Update()
@@ -38,6 +42,30 @@ public class MimicPlayerLocation: MonoBehaviour
 
         transform.position = RotatePointAroundPivot(targetPos, FakeParent.position, targetRot);
         transform.localRotation = targetRot;
+        animatorHandler();
+    }
+    private void animatorHandler(){
+        //Sets animation: Kina jank atm
+        PlayerController PC = playerToMimic.GetComponent<PlayerController>();
+        anim.SetBool("Wheel", PC.getWheelLocked());
+
+            if(PC.getInputs().x != 0){
+                lastdirx = PC.getInputs().x;
+            }
+            anim.SetFloat("Horizontal", PC.getInputs().x);
+            if(PC.getInputs().y != 0){
+                lastdirx = PC.getInputs().y;
+                if(PC.getInputs().x == 0){
+                    lastdirx = 0;
+                }
+            }
+            anim.SetFloat("Vertical", PC.getInputs().y);
+            if(PC.getInputs().x == 0 && PC.getInputs().y == 0){
+                anim.SetFloat("Horizontal", lastdirx);
+                anim.SetFloat("Vertical", lastdiry);
+            }
+        float s = Mathf.Abs(PC.getInputs().x) + Mathf.Abs(PC.getInputs().y);
+        anim.SetFloat("Speed", s);
     }
 
     public void SetFakeParent(Transform parent)
