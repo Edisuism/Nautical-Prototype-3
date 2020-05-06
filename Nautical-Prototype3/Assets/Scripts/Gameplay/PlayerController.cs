@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
     }
     void Awake()
     {
+        if(GameObject.FindGameObjectWithTag("ShipPivot").GetComponent<ShipMovAcc>().getSetSail()){
+            Destroy(gameObject);
+        }else{
         //Add observer functionality
         //GameEvents.current.onWheelInteract += changeDisableState;
         //set ID based on Players present
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
         //TODO Instantiate Mimic
         var Object = GameObject.Instantiate(mimic);
         //Object.GetComponent<MimicPlayerLocation>().SetPlayerToMimic(this.gameObject);
+        }
     }
 
     // Update is called once per frame
@@ -42,6 +46,7 @@ public class PlayerController : MonoBehaviour
             Debug.Log(playerID + " is on the wheel");
             GameObject.FindGameObjectWithTag("ShipPivot").GetComponent<ShipMovAcc>().setInput(moveInput.x * -1);
             GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
+            transform.position = new Vector3(0,-3,0);
         }
     }
     //New Input System functions
@@ -61,7 +66,7 @@ public class PlayerController : MonoBehaviour
                     GameEvents.current.Mast2Interact();
                 break;
                 case "Anchor":
-                    GameEvents.current.Mast2Interact();
+                    GameEvents.current.AnchorInteract();
                 break;
                 case "Wheel":
                     if (wheelLocked(playerID)){

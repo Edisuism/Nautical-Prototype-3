@@ -7,10 +7,12 @@ public class ShipMovAcc : MonoBehaviour
     public int mainSail = 0;
     private bool vCooldown;
     public float forwardVelocity, forwardAcceleration, angularVel;
+    private Vector2 hitforce = new Vector2(0f,0f);
     public float  maxAngVel = 20;
 
     private bool mSail, sSail;
     public int wheelInUse;
+    private bool anchor, setSail;
 
     //For Manual Control
     public bool manualControl = false;
@@ -21,6 +23,7 @@ public class ShipMovAcc : MonoBehaviour
     private void Start(){
         GameEvents.current.onMastInteract += mSailStateChange;
         GameEvents.current.onMast2Interact += sSailStateChange;
+        GameEvents.current.onAnchorInteract += setAnchor;
     }
     void Awake()
     {
@@ -30,6 +33,8 @@ public class ShipMovAcc : MonoBehaviour
         angularVel = 0;
         maxAngVel = 20;
         wheelInUse = 0;
+        anchor = true;
+        setSail = false;
     }
 
     // Update is called once per frame
@@ -57,18 +62,58 @@ public class ShipMovAcc : MonoBehaviour
     public void setWheelInUse(int x){
         wheelInUse = x;
     }
+    public void setAnchor(){
+        anchor = !anchor;
+        if(setSail == false){
+            setSail = true;
+        }
+    }
     public void setInput(float x){
         InputX = x;
+    }
+    public bool getSetSail(){
+        return setSail;
     }
     //update for physics calculations
     void FixedUpdate()
     {
         //Ship Angle Calculations
-        GetComponent<Rigidbody2D>().angularVelocity = angularVel;
+        if(!anchor){GetComponent<Rigidbody2D>().angularVelocity = angularVel;}
+        else{GetComponent<Rigidbody2D>().angularVelocity = 0;}
         float shipAngle = transform.localRotation.eulerAngles.z;
         //Forwad Velocity.
         calculateForwardVelocity();
-        GetComponent<Rigidbody2D>().velocity= seperateVelocity(shipAngle, forwardVelocity);
+        //Work out collision bounce
+        updateHitForce();
+        GetComponent<Rigidbody2D>().velocity = seperateVelocity(shipAngle, forwardVelocity) - hitforce;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        //Gets the direction to apply the force
+        Vector2 collisionDir = other.transform.position - gameObject.transform.position;
+        hitforce = hitforce + (collisionDir * 3);
+        //If I have nothing else to do I'll work out ang velocity
+    }
+    private void updateHitForce(){
+        if(hitforce != new Vector2(0,0)){
+            Debug.Log(hitforce);
+            //reduces the force ammount each frame
+            //Sub function didn't work for some reason so we have this nightmare
+            if(Mathf.Abs(hitforce.x) < 0.5f){
+                hitforce.x = 0;
+            }else if(hitforce.x >= 0.5){
+                hitforce.x = hitforce.x - 0.5f;
+            }else{
+                hitforce.x = hitforce.x + 0.5f;
+            }
+            if(Mathf.Abs(hitforce.y) < 0.5f){
+                hitforce.y = 0;
+            }else if(hitforce.y >= 0.5){
+                hitforce.y = hitforce.y - 0.5f;
+            }else{
+                hitforce.y = hitforce.y + 0.5f;
+            }
+        }
     }
     void currentAngularVelocity(float i){
         angularVel = angularVel + i/3;
@@ -118,9 +163,19 @@ public class ShipMovAcc : MonoBehaviour
         }
     }
     void calculateForwardVelocity(){
-        switch(mainSail){
+        int x = mainSail;
+        if(anchor == true){
+            x = 0;
+        }
+        switch(x){
             case 0:
-            if (forwardVelocity>0){forwardVelocity += forwardAcceleration;}
+            if (forwardVelocity>0)
+            {
+                if(anchor == true){forwardAcceleration = -5;}
+                forwardVelocity += (forwardAcceleration);
+            }else {
+                forwardVelocity = 0;
+            }
             break;
             case 1:
             if (forwardVelocity<6){forwardVelocity += forwardAcceleration;}
@@ -128,6 +183,7 @@ public class ShipMovAcc : MonoBehaviour
             case 2:
             if (forwardVelocity<12){forwardVelocity += forwardAcceleration;}
             break;
+             
         }
     }
 
