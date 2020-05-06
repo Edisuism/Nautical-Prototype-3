@@ -23,6 +23,12 @@ public class GameEvents : MonoBehaviour
             onMast2Interact();
         }
     }
+    public event Action onAnchorInteract;
+    public void AnchorInteract(){
+        if (onAnchorInteract != null){
+            onAnchorInteract();
+        }
+    }
     public event Action onWheelInteract;
     public void WheelInteract(){
         if (onWheelInteract != null){
