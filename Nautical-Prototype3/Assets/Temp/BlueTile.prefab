@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1680983978774854900}
   - component: {fileID: 3621503189428392517}
   - component: {fileID: 6971154966887939949}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlueTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

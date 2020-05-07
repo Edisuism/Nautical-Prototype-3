@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2600156329913722113}
   - component: {fileID: 4769359469844508674}
   - component: {fileID: 2350870414744761124}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1423,7 +1423,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 2
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1519,14 +1519,14 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 80d16de266221914caf151ad44dc19df, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 2410779667716283973, guid: bad8c0f4435bdb541811fbb2438c07b1,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 2837546753677021560, guid: bad8c0f4435bdb541811fbb2438c07b1,
       type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 2410779667716283973, guid: bad8c0f4435bdb541811fbb2438c07b1,
+      type: 3}
   - m_RefCount: 3
     m_Data: {fileID: -1791660949411625813, guid: e27fc9639eca01e4fa86991a42cf075b,
       type: 3}
