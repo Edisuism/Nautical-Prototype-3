@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1935978581695610409}
-  - component: {fileID: 1935978581695610414}
   - component: {fileID: 1935978581695610415}
+  - component: {fileID: 6003714248945630378}
+  - component: {fileID: 1935978581695610414}
   - component: {fileID: 1935978581695610408}
   - component: {fileID: 1935978581695610410}
   - component: {fileID: 2574703143132476518}
-  - component: {fileID: 6003714248945630378}
   - component: {fileID: 6162929757151517179}
   m_Layer: 0
   m_Name: Pirate
@@ -37,6 +37,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1935978581695610415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935978581695610412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1504bb017ee024aa9a00ca0c5c1db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpeed: 2
+  inRange: 
+  mimic: {fileID: 8226199101258073906, guid: aa09c3549abaa96438d8a0f4d96c3aee, type: 3}
+  animSets:
+  - {fileID: 9100000, guid: d9fd616c23b7e73408e0de676824ae9e, type: 2}
+  - {fileID: 9100000, guid: a551f474f0de7e841a4b3d48bfec6921, type: 2}
+--- !u!114 &6003714248945630378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935978581695610412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1d1b1f59f8c10694aa127146d6320879,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5364d34d-f312-4021-af30-abf7b8eebcf4
+    m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ed15e49e-631a-4ea4-9d0e-03e7115a1975
+    m_ActionName: Player/Interact[/DualShock4GamepadHID/buttonSouth]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!212 &1935978581695610414
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88,23 +145,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1935978581695610415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1935978581695610412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e1504bb017ee024aa9a00ca0c5c1db9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpeed: 2
-  mimic: {fileID: 8226199101258073906, guid: aa09c3549abaa96438d8a0f4d96c3aee, type: 3}
-  animSets:
-  - {fileID: 9100000, guid: d9fd616c23b7e73408e0de676824ae9e, type: 2}
-  - {fileID: 9100000, guid: a551f474f0de7e841a4b3d48bfec6921, type: 2}
 --- !u!61 &1935978581695610408
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -168,45 +208,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.08}
   serializedVersion: 2
   m_Radius: 0.6
---- !u!114 &6003714248945630378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1935978581695610412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 1d1b1f59f8c10694aa127146d6320879,
-    type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 5364d34d-f312-4021-af30-abf7b8eebcf4
-    m_ActionName: Player/Move[/DualShock4GamepadHID/leftStick]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ed15e49e-631a-4ea4-9d0e-03e7115a1975
-    m_ActionName: Player/Interact[/DualShock4GamepadHID/buttonSouth]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!95 &6162929757151517179
 Animator:
   serializedVersion: 3

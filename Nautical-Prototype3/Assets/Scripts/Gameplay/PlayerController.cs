@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed = 2f;
     private Vector2 moveInput;
     //public Rigidbody2D ShipRB2D;
-    public string inRange;
+    private string inRange;
     private int carrying = 0;
     public GameObject mimic;
     Animator anim;
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
             //Move player via velocity component
             GetComponent<Rigidbody2D>().velocity = (moveInput * playerSpeed);
         }else{
-            Debug.Log(playerID + " is on the wheel");
+            //Debug.Log(playerID + " is on the wheel");
             GameObject.FindGameObjectWithTag("ShipPivot").GetComponent<ShipMovAcc>().setInput(moveInput.x * -1);
             transform.position = new Vector2(0,-3);
         }
@@ -89,6 +89,9 @@ public class PlayerController : MonoBehaviour
     public bool getWheelLocked(){
         return wheelLocked(playerID);
     }
+    public int getCarrying(){
+        return carrying;
+    }
     //New Input System functions
     private void OnMove(InputValue value){
         //Store controller stick/keyboard wasd inputs to be used in update
@@ -97,10 +100,12 @@ public class PlayerController : MonoBehaviour
     private void OnInteract(){
         //Function runs when interact button is pressed
         //Switch statement based on
-        switch(inRange)
-            {
+        if(carrying == 0){
+            switch(inRange){
                 case "MainMast":
+                
                     GameEvents.current.MastInteract();
+                
                 break;
                 case "Mast2":
                     GameEvents.current.Mast2Interact();
@@ -125,11 +130,20 @@ public class PlayerController : MonoBehaviour
                 break;
                 case "Materials":
                     carrying = 1;
+                    Debug.Log("Pickup");
                 break;
-            } 
+            }
+        }else{
+            Debug.Log("Cannot interact while carrying");
+        } 
     }
     private void OnDrop(){
+        carrying = 0;
         Debug.Log("Drop");
+        if (wheelLocked(playerID)){
+                        GameEvents.current.WheelInteract();
+                        GameObject.FindGameObjectWithTag("ShipPivot").GetComponent<ShipMovAcc>().setWheelInUse(0);
+        }
     }
     bool wheelLocked(int x){
         return GameObject.FindGameObjectWithTag("ShipPivot").GetComponent<ShipMovAcc>().getWheelInUse() == x;
