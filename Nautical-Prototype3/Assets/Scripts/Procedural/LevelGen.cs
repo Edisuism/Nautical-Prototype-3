@@ -6,7 +6,10 @@ public class LevelGen : MonoBehaviour
 {
     public Transform[] startingPositions;
     //Potential areas include: i0 = LR, i1 = LRB, i2 = LRT, i3 = Open
-    public GameObject[] areas; 
+    public GameObject[] areas;
+    public GameObject[] start;
+    public GameObject player;
+    public GameObject treasure;
     //Adjust according to tile size
     public float moveAmount;
     public float startTimeBetweenArea = 0.25f;
@@ -26,7 +29,8 @@ public class LevelGen : MonoBehaviour
     {
         int randomStartingPoint = Random.Range(0, startingPositions.Length);
         transform.position = startingPositions[randomStartingPoint].position;
-        Instantiate(areas[0], transform.position, Quaternion.identity); 
+        Instantiate(start[0], transform.position, Quaternion.identity);
+        Instantiate(player, transform.position, Quaternion.identity);
         //could edit so instead of areas[0] it calls from a list of potential starting areas
 
         direction = Random.Range(1, 6);
@@ -145,6 +149,7 @@ public class LevelGen : MonoBehaviour
             else
             {
                 //could add so it destroys the room it is currently on and replace it with a suitable end tile
+                Instantiate(treasure, transform.position, Quaternion.identity);
                 stopGen = true;
             }
         }
