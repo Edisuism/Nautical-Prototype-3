@@ -158,6 +158,12 @@ MonoBehaviour:
   angularVel: 0
   maxAngVel: 0
   wheelInUse: 0
+  leaks:
+  - {fileID: 696393234671496700}
+  - {fileID: 8525048364370813250}
+  - {fileID: 4687823849132755162}
+  - {fileID: 3539432962240531169}
+  - {fileID: 4325827254809311144}
   manualControl: 0
 --- !u!96 &5766137303280723572
 TrailRenderer:
@@ -390,6 +396,36 @@ PrefabInstance:
 --- !u!4 &7874911870273859668 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5910408833241837363, guid: 01b523dbe1e8a394e87891524cd62292,
+    type: 3}
+  m_PrefabInstance: {fileID: 4561217453842751335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &696393234671496700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3956032866224157339, guid: 01b523dbe1e8a394e87891524cd62292,
+    type: 3}
+  m_PrefabInstance: {fileID: 4561217453842751335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8525048364370813250 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5261256916377746981, guid: 01b523dbe1e8a394e87891524cd62292,
+    type: 3}
+  m_PrefabInstance: {fileID: 4561217453842751335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4687823849132755162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9098060626822059965, guid: 01b523dbe1e8a394e87891524cd62292,
+    type: 3}
+  m_PrefabInstance: {fileID: 4561217453842751335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3539432962240531169 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1031927522880394630, guid: 01b523dbe1e8a394e87891524cd62292,
+    type: 3}
+  m_PrefabInstance: {fileID: 4561217453842751335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4325827254809311144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 235559248946751695, guid: 01b523dbe1e8a394e87891524cd62292,
     type: 3}
   m_PrefabInstance: {fileID: 4561217453842751335}
   m_PrefabAsset: {fileID: 0}

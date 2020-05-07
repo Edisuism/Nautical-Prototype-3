@@ -135,8 +135,24 @@ public class PlayerController : MonoBehaviour
             }
         }else{
             switch(inRange){
-                case "Damage":
-                    GameEvents.current.DamageInteract();
+                case "Damage1":
+                    GameEvents.current.Damage1Interact();
+                    carrying = 0;
+                break;
+                case "Damage2":
+                    GameEvents.current.Damage2Interact();
+                    carrying = 0;
+                break;
+                case "Damage3":
+                    GameEvents.current.Damage3Interact();
+                    carrying = 0;
+                break;
+                case "Damage4":
+                    GameEvents.current.Damage4Interact();
+                    carrying = 0;
+                break;
+                case "Damage5":
+                    GameEvents.current.Damage5Interact();
                     carrying = 0;
                 break;
             }
