@@ -13,6 +13,9 @@ public class ShipMovAcc : MonoBehaviour
     private bool mSail, sSail;
     public int wheelInUse;
     private bool anchor, setSail;
+    public GameObject[] leaks;
+    public GameObject[] leaksp;
+    private int iggy = 0;
 
     //For Manual Control
     public bool manualControl = false;
@@ -92,6 +95,7 @@ public class ShipMovAcc : MonoBehaviour
         //Gets the direction to apply the force
         Vector2 collisionDir = other.transform.position - gameObject.transform.position;
         hitforce = hitforce + (collisionDir * 3);
+        createDamage();
         //If I have nothing else to do I'll work out ang velocity
     }
     private void updateHitForce(){
@@ -195,5 +199,13 @@ public class ShipMovAcc : MonoBehaviour
     public float ConvertToRadians(float angle)
     {
         return (Mathf.PI / 180) * angle;
+    }
+    private void createDamage(){
+        leaks[iggy].SetActive(true);
+        leaksp[iggy].SetActive(true);
+        iggy++;
+        if(iggy == 5){
+            iggy = 0;
+        }
     }
 }

@@ -67,6 +67,9 @@ public class MimicPlayerLocation: MonoBehaviour
         float s = Mathf.Abs(PC.getInputs().x) + Mathf.Abs(PC.getInputs().y);
         anim.SetFloat("Speed", s);
     }
+    public GameObject getPlayerToMimic(){
+        return playerToMimic;
+    }
 
     public void SetFakeParent(Transform parent)
     {

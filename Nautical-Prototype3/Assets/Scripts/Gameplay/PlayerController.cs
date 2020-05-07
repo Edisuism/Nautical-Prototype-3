@@ -53,12 +53,11 @@ public class PlayerController : MonoBehaviour
             //Move player via velocity component
             GetComponent<Rigidbody2D>().velocity = (moveInput * playerSpeed);
         }else{
-            Debug.Log(playerID + " is on the wheel");
+            //Debug.Log(playerID + " is on the wheel");
             GameObject.FindGameObjectWithTag("ShipPivot").GetComponent<ShipMovAcc>().setInput(moveInput.x * -1);
-            GetComponent<Rigidbody2D>().velocity = new Vector3(0,0,0);
-            transform.position = new Vector3(0,-3,0);
+            transform.position = new Vector2(0,-3);
         }
-        animatorHandler();
+        //animatorHandler();
         
     }
     private void animatorHandler(){
@@ -90,6 +89,9 @@ public class PlayerController : MonoBehaviour
     public bool getWheelLocked(){
         return wheelLocked(playerID);
     }
+    public int getCarrying(){
+        return carrying;
+    }
     //New Input System functions
     private void OnMove(InputValue value){
         //Store controller stick/keyboard wasd inputs to be used in update
@@ -98,10 +100,12 @@ public class PlayerController : MonoBehaviour
     private void OnInteract(){
         //Function runs when interact button is pressed
         //Switch statement based on
-        switch(inRange)
-            {
+        if(carrying == 0){
+            switch(inRange){
                 case "MainMast":
+                
                     GameEvents.current.MastInteract();
+                
                 break;
                 case "Mast2":
                     GameEvents.current.Mast2Interact();
@@ -124,29 +128,68 @@ public class PlayerController : MonoBehaviour
                         }
                     }
                 break;
-            } 
+                case "Materials":
+                    carrying = 1;
+                    Debug.Log("Pickup");
+                break;
+            }
+        }else{
+            switch(inRange){
+                case "Damage1":
+                    GameEvents.current.Damage1Interact();
+                    carrying = 0;
+                break;
+                case "Damage2":
+                    GameEvents.current.Damage2Interact();
+                    carrying = 0;
+                break;
+                case "Damage3":
+                    GameEvents.current.Damage3Interact();
+                    carrying = 0;
+                break;
+                case "Damage4":
+                    GameEvents.current.Damage4Interact();
+                    carrying = 0;
+                break;
+                case "Damage5":
+                    GameEvents.current.Damage5Interact();
+                    carrying = 0;
+                break;
+            }
+        } 
+    }
+    private void OnDrop(){
+        carrying = 0;
+        Debug.Log("Drop");
+        if (wheelLocked(playerID)){
+                        GameEvents.current.WheelInteract();
+                        GameObject.FindGameObjectWithTag("ShipPivot").GetComponent<ShipMovAcc>().setWheelInUse(0);
+        }
     }
     bool wheelLocked(int x){
         return GameObject.FindGameObjectWithTag("ShipPivot").GetComponent<ShipMovAcc>().getWheelInUse() == x;
     }
     //Store nearest object thats interactable
     void OnTriggerEnter2D(Collider2D dataFromCollision) {
-            inRange = dataFromCollision.gameObject.name;
-            
-            switch(inRange){
-                case "BoatPlayable":
-                    inRange = null;
-                break;
+            if(!colIgnore(dataFromCollision.name)){
+                inRange = dataFromCollision.gameObject.name;
+            }
+                
+    }
+    bool colIgnore(string name){
+        //Make sure collisions was only with interactables
+        switch(name){
+            case "BoatPlayable":
+                return true;
                 case "Pirate(Clone)":
-                    inRange = null;
-                break;
-            } 
+                return true;
+        }
+        return false; 
     }
     //reset when out of range
     void OnTriggerExit2D(Collider2D dataFromCollision) {
         if(!(dataFromCollision.gameObject.name.Equals("BoatPlayable"))){
             inRange = null;
-            Debug.Log(inRange);
         }
     }
 }

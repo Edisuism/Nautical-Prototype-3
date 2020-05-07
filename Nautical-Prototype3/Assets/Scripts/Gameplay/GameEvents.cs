@@ -35,4 +35,34 @@ public class GameEvents : MonoBehaviour
             onWheelInteract();
         }
     }
+    public event Action onDamage1Interact;
+    public void Damage1Interact(){
+        if (onDamage1Interact != null){
+            onDamage1Interact();
+        }
+    }
+    public event Action onDamage2Interact;
+    public void Damage2Interact(){
+        if (onDamage2Interact != null){
+            onDamage2Interact();
+        }
+    }
+    public event Action onDamage3Interact;
+    public void Damage3Interact(){
+        if (onDamage3Interact != null){
+            onDamage3Interact();
+        }
+    }
+    public event Action onDamage4Interact;
+    public void Damage4Interact(){
+        if (onDamage4Interact != null){
+            onDamage4Interact();
+        }
+    }
+        public event Action onDamage5Interact;
+    public void Damage5Interact(){
+        if (onDamage5Interact != null){
+            onDamage5Interact();
+        }
+    }
 }
