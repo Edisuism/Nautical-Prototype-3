@@ -99,7 +99,7 @@ public class ShipMovAcc : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         //Gets the direction to apply the force
         Vector2 collisionDir = other.transform.position - gameObject.transform.position;
-        hitforce = hitforce + (collisionDir * 3);
+        hitforce = hitforce + (collisionDir / 2);
         createDamage();
         //If I have nothing else to do I'll work out ang velocity
     }
