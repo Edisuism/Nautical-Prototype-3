@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent (typeof (Rigidbody2D))]
 public class ShipMovAcc : MonoBehaviour
 {
+    public bool noRand = false;
     public int mainSail = 0;
     private bool vCooldown;
     public float forwardVelocity, forwardAcceleration, angularVel;
@@ -43,9 +44,11 @@ public class ShipMovAcc : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        if (startSet == false){
-            transform.position = GameObject.Find("BlueTile(Clone)").transform.position;
-            startSet = true;
+        if(noRand == false){
+            if (startSet == false){
+                transform.position = GameObject.Find("BlueTile(Clone)").transform.position;
+                startSet = true;
+            }
         }
         if(manualControl){
             //Get inputs
