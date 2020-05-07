@@ -50,7 +50,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 2
-  inRange: 
   mimic: {fileID: 8226199101258073906, guid: aa09c3549abaa96438d8a0f4d96c3aee, type: 3}
   animSets:
   - {fileID: 9100000, guid: d9fd616c23b7e73408e0de676824ae9e, type: 2}

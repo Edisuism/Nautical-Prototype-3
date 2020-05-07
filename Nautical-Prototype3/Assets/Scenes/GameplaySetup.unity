@@ -128,6 +128,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8100299698608318061, guid: 8d6ebb8a8fb993f41ae74092270a3c34,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100299698608318061, guid: 8d6ebb8a8fb993f41ae74092270a3c34,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100299698608318062, guid: 8d6ebb8a8fb993f41ae74092270a3c34,
+        type: 3}
+      propertyPath: minX
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100299698608318062, guid: 8d6ebb8a8fb993f41ae74092270a3c34,
+        type: 3}
+      propertyPath: maxX
+      value: 96
+      objectReference: {fileID: 0}
+    - target: {fileID: 8100299698608318062, guid: 8d6ebb8a8fb993f41ae74092270a3c34,
+        type: 3}
+      propertyPath: minY
+      value: 48
+      objectReference: {fileID: 0}
     - target: {fileID: 8100299699208454451, guid: 8d6ebb8a8fb993f41ae74092270a3c34,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -278,6 +303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2673820521418818157, guid: 8077dd06c166761409cc6f7c7d72526c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2673820523240038690, guid: 8077dd06c166761409cc6f7c7d72526c,
         type: 3}
       propertyPath: leaksp.Array.data[0]
@@ -362,6 +392,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShipPivot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2673820523240038694, guid: 8077dd06c166761409cc6f7c7d72526c,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8077dd06c166761409cc6f7c7d72526c, type: 3}
