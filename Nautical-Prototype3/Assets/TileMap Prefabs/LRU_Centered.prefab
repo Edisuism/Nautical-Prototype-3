@@ -79,6 +79,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3496540122310403166}
     m_Modifications:
+    - target: {fileID: 1107565741046515050, guid: 7bfc3a387f2da5843b47892a015dcbe8,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 2600156329913722113, guid: 7bfc3a387f2da5843b47892a015dcbe8,
         type: 3}
       propertyPath: m_Tiles.Array.data[153].second.m_TileSpriteIndex
