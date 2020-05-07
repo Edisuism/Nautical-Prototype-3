@@ -216,6 +216,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5118952525669893203, guid: 5cffdfd026061744bbd0af91da57a1c2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 8456935734391888893, guid: 5cffdfd026061744bbd0af91da57a1c2,
         type: 3}
       propertyPath: m_Tiles.Array.size
