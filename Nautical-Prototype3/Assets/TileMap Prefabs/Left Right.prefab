@@ -5604,7 +5604,7 @@ GameObject:
   - component: {fileID: 1156882818824833669}
   - component: {fileID: 1028664233488928700}
   - component: {fileID: 8721643253612571930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5845,7 +5845,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 7
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 25
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5962,7 +5962,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 17
-      m_TileSpriteIndex: 17
+      m_TileSpriteIndex: 24
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -7215,9 +7215,8 @@ Tilemap:
   - m_RefCount: 3
     m_Data: {fileID: 2314434386646120172, guid: df68cebeec97fc24bb62fd65c86b0a02,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 2344059786179987072, guid: fae62d40158b8c743bfca05872f62b55,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 13
     m_Data: {fileID: -1279098702544896002, guid: fae62d40158b8c743bfca05872f62b55,
       type: 3}
@@ -7245,9 +7244,8 @@ Tilemap:
   - m_RefCount: 6
     m_Data: {fileID: -813298633614098821, guid: fae62d40158b8c743bfca05872f62b55,
       type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 7332347968258512714, guid: fae62d40158b8c743bfca05872f62b55,
-      type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 3
     m_Data: {fileID: -31757005388251501, guid: df68cebeec97fc24bb62fd65c86b0a02, type: 3}
   - m_RefCount: 4
@@ -7264,10 +7262,12 @@ Tilemap:
       type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 7332347968258512714, guid: fae62d40158b8c743bfca05872f62b55,
+      type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 2344059786179987072, guid: fae62d40158b8c743bfca05872f62b55,
+      type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1685547713756480143, guid: df68cebeec97fc24bb62fd65c86b0a02,
       type: 3}
