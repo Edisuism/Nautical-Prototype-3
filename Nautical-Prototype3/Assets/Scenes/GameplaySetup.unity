@@ -246,7 +246,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: -3521365819158059403, guid: 0008abe550cb5ea468ff3a8ac5363d7b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -370,6 +370,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ShipPivot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5766137303280723572, guid: 8077dd06c166761409cc6f7c7d72526c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 5766137303280723572, guid: 8077dd06c166761409cc6f7c7d72526c,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8077dd06c166761409cc6f7c7d72526c, type: 3}
@@ -549,7 +559,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: -3521365819158059403, guid: 0008abe550cb5ea468ff3a8ac5363d7b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

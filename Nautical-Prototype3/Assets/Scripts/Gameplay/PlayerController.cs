@@ -134,7 +134,12 @@ public class PlayerController : MonoBehaviour
                 break;
             }
         }else{
-            Debug.Log("Cannot interact while carrying");
+            switch(inRange){
+                case "Damage":
+                    GameEvents.current.DamageInteract();
+                    carrying = 0;
+                break;
+            }
         } 
     }
     private void OnDrop(){

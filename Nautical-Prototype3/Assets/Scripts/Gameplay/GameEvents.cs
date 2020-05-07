@@ -35,4 +35,10 @@ public class GameEvents : MonoBehaviour
             onWheelInteract();
         }
     }
+    public event Action onDamageInteract;
+    public void DamageInteract(){
+        if (onDamageInteract != null){
+            onDamageInteract();
+        }
+    }
 }
