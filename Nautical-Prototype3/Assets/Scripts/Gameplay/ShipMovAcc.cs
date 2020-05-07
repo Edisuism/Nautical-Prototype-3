@@ -16,6 +16,7 @@ public class ShipMovAcc : MonoBehaviour
     public GameObject[] leaks;
     public GameObject[] leaksp;
     private int iggy = 0;
+    private bool startSet = false;
 
     //For Manual Control
     public bool manualControl = false;
@@ -42,6 +43,10 @@ public class ShipMovAcc : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
+        if (startSet == false){
+            transform.position = GameObject.Find("BlueTile(Clone)").transform.position;
+            startSet = true;
+        }
         if(manualControl){
             //Get inputs
             //InputX = -1 *(Input.GetAxisRaw("Horizontal"));
